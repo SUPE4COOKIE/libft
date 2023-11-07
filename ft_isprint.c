@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 00:32:20 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/07 00:36:23 by mwojtasi         ###   ########.fr       */
+/*   Created: 2023/11/07 00:21:27 by mwojtasi          #+#    #+#             */
+/*   Updated: 2023/11/07 00:42:09 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# include <unistd.h>
-# include <stdlib.h>
-#endif
+int	ft_isprint(unsigned char c)
+{
+	if ((c >= 32 && c <= 126))
+		return (1);
+	return (0);
+}

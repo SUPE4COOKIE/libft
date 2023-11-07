@@ -1,18 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 04:48:01 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/07 15:19:50 by mwojtasi         ###   ########.fr       */
+/*   Created: 2023/11/07 17:20:32 by mwojtasi          #+#    #+#             */
+/*   Updated: 2023/11/07 20:08:36 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *memmove(void *dest, const void *src, size_t n)
+char *strnstr(const char *big,	const char *little, size_t len)
 {
-	
+	size_t i;
+	size_t j;
+	size_t lsize;
+
+	i = 0;
+	lsize = ft_strlen((char *)little) - 1;
+	if (!little)
+		return ((char *)big);
+	while (big[i] && i < len)
+	{
+		j = 0;
+		while ((little[j] == big[i+j]) && (i + j) < len)
+		{
+			if (j == lsize)
+				return ((char *)&big[i]);
+			j++;
+		}
+		i++;
+	}
+	return (NULL);
 }

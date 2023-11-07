@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 04:48:01 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/07 15:19:50 by mwojtasi         ###   ########.fr       */
+/*   Created: 2023/11/07 15:18:26 by mwojtasi          #+#    #+#             */
+/*   Updated: 2023/11/07 15:34:20 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *memmove(void *dest, const void *src, size_t n)
+char *strchr(const char *s, int c)
 {
-	
+	int i;
+
+	i = 0;
+	while (s[i] != c)
+		i++;
+	if (s[i] == c)
+		return ((char *)&s[i]);
+	else
+	 return (NULL);
 }

@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mwojtasi <mwojtasi@student.42lyon.fr >     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 04:11:58 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/07 16:30:42 by mwojtasi         ###   ########.fr       */
+/*   Created: 2023/07/08 01:50:45 by mwojtasi          #+#    #+#             */
+/*   Updated: 2023/07/08 01:50:45 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_bzero(void *s, size_t n)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	size_t i;
-	unsigned char *ptr;
-	
+	unsigned int	i;
+
 	i = 0;
-	ptr = (unsigned char *)s;
-	while (i < n)
+	while ((s1[i] || s2[i]) && i < n)
 	{
-		ptr[i] = '\0';
+		if (s1[i] != s2[i])
+		{
+			return (s1[i] - s2[i]);
+		}
 		i++;
 	}
+	return (0);
 }
+
+/*#include <stdio.h>
+int main(void)
+{
+	printf("%d\n",ft_strncmp("AAAzzz","aaayyy",3));
+}*/

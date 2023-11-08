@@ -6,7 +6,7 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 03:01:24 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/08 06:03:50 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/08 17:48:39 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,16 @@ int	ft_atoi(const char *nptr)
 	int			sign;
 
 	result = 0;
+	sign = 1;
 	while (ft_isspace(*nptr))
 		nptr++;
-	if (*nptr++ == '-')
+	if (*nptr == '-')
+	{
 		sign = -1;
-	else if (*nptr++ == '+')
-		sign = 1;
+		nptr++;
+	}
+	else if (*nptr == '+')
+		nptr++;
 	while (*nptr && ft_isdigit((unsigned char)*nptr))
 	{
 		result = result * 10 + *nptr - '0';

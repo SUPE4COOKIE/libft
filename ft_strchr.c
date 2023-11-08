@@ -6,13 +6,13 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:18:26 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/07 15:34:20 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/08 04:56:34 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 

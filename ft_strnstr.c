@@ -6,7 +6,7 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:20:32 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/08 04:58:23 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/08 06:06:28 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strnstr(const char *big,	const char *little, size_t len)
 	size_t	j;
 	size_t	lsize;
 
+	if (!*little)
+		return ((char *)big);
 	i = 0;
 	lsize = ft_strlen((char *)little) - 1;
 	if (!little)

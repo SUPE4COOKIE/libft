@@ -6,7 +6,7 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:32:37 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/08 04:56:20 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/08 05:34:15 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	csrc = (unsigned char *)s;
 	while (i < n)
 	{
-		if (*csrc == c)
+		if (*csrc == (unsigned char)c)
 			return ((void *)csrc);
 		csrc++;
 		i++;

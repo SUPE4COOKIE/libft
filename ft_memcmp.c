@@ -6,7 +6,7 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:07:38 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/07 17:19:02 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/08 05:39:25 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 			return (*cs1 - *cs2);
 		cs1++;
 		cs2++;
+		i++;
 	}
 	return (0);
 }

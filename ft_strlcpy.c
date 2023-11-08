@@ -10,24 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	str_size(char *str)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
-}
+#include "libft.h"
 
 unsigned	int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	unsigned int	src_size;
 	unsigned int	i;
 
-	src_size = str_size(src);
+	src_size = ft_strlen(src);
 	if (size == 0)
 	{
 		return (src_size);

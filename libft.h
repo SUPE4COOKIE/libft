@@ -14,5 +14,9 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
-size_t ft_strlen(char *s);
+
+size_t			ft_strlen(char *s);
+int				ft_isdigit(unsigned char c);
+void			ft_bzero(void *s, size_t n);
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
 #endif

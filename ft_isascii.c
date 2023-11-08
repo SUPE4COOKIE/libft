@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isdigit(unsigned char c)
+int	ft_isdigit(unsigned char c)
 {
-    if (c <= 127)
-        return (1);
-    return (0);
+	if (c <= 127)
+		return (1);
+	return (0);
 }

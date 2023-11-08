@@ -10,19 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int	str_len(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*copy_str(char *str, int start, int len)
+static char	*copy_str(char *str, int start, int len)
 {
 	char	*str_copy;
 	int		i;
@@ -38,7 +28,7 @@ char	*copy_str(char *str, int start, int len)
 	return (str_copy);
 }
 
-int	is_separator(char c, char *sep)
+static int	is_separator(char c, char *sep)
 {
 	int	i;
 
@@ -52,7 +42,7 @@ int	is_separator(char c, char *sep)
 	return (0);
 }
 
-char	**ft_split(char *str, char *sep)
+char	**ft_split(char const *str, char *sep)
 {
 	int		len;
 	int		i;
@@ -60,7 +50,7 @@ char	**ft_split(char *str, char *sep)
 	int		start;
 	char	**split;
 
-	len = str_len(str);
+	len = ft_strlen(str);
 	i = 0;
 	j = 0;
 	start = 0;

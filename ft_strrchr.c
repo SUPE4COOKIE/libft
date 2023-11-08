@@ -12,10 +12,11 @@
 
 #include "libft.h"
 
-char *strrchr(const char *s, int c)
+char	*strrchr(const char *s, int c)
 {
-	int i;
-	char *last;
+	int		i;
+	char	*last;
+
 	i = 0;
 	while (s[i])
 	{
@@ -27,4 +28,3 @@ char *strrchr(const char *s, int c)
 		return (last);
 	return (NULL);
 }
-

@@ -10,19 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int	str_len(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strcpy(char *dest, char *src)
+static char	*ft_strcpy(char *dest, char *src)
 {
 	int		i;
 
@@ -40,20 +30,9 @@ char	*ft_strdup(char *src)
 {
 	char	*new;
 
-	new = malloc(str_len(src) + 1);
+	new = malloc(ft_strlen(src) + 1);
 	if (new == NULL)
 		return (NULL);
 	ft_strcpy(new, src);
 	return (new);
 }
-
-/*#include <stdio.h>
-int	main(void)
-{
-	char	src[4] = "test";
-	char	*dup;
-
-	dup = ft_strdup(src);
-	printf("%s",dup);
-	free(dup);
-}*/

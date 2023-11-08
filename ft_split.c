@@ -12,12 +12,14 @@
 
 #include "libft.h"
 
-static char	*copy_str(char *str, int start, int len)
+static char	*copy_str(const char *str, int start, int len)
 {
 	char	*str_copy;
 	int		i;
 
 	str_copy = malloc(len + 1);
+	if (str_copy == NULL)
+		return (NULL);
 	i = 0;
 	while (i < len)
 	{

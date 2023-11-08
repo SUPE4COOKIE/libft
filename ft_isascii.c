@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(unsigned char c)
+int	ft_isascii(unsigned char c)
 {
 	if (c <= 127)
 		return (1);

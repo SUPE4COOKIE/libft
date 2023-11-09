@@ -1,34 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwojtasi <mwojtasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 13:28:08 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/09 14:21:35 by mwojtasi         ###   ########.fr       */
+/*   Created: 2023/11/09 17:04:07 by mwojtasi          #+#    #+#             */
+/*   Updated: 2023/11/09 17:34:07 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*result;
-	size_t	slen;
-	size_t	i;
-
-	result = malloc(len * sizeof(char) + 1);
-	slen = ft_strlen((char *)s);
-	if (!result || start > slen)
-		return (NULL);
+	char			*result;
+	unsigned int	i;
+	
 	i = 0;
-	while (s[start] && i < len)
+	result = malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
+	while (s[i])
 	{
-		result[i] = (char)s[start];
+		*result = f(i, s[i]);
+		result++;
 		i++;
-		start++;
 	}
-	result[i] = '\0';
+	*result = '\0';
 	return (result);
 }
+
+/*char minusone(unsigned int i, char c)
+{
+	return (c - 1);
+}
+
+#include <stdio.h>
+int main(void)
+{
+	const char s[] = "bcdefghij";
+	printf("%s",ft_strmapi(s, minusone));
+}*/

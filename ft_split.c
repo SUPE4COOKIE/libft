@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mwojtasi <mwojtasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 11:57:11 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/07/16 17:14:23 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:40:50 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,7 @@ static char	*copy_str(const char *str, int start, int len)
 	return (str_copy);
 }
 
-static int	is_separator(char c, char *sep)
-{
-	int	i;
-
-	i = 0;
-	while (sep[i])
-	{
-		if (c == sep[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-char	**ft_split(char const *str, char *sep)
+char	**ft_split(char const *str, char sep)
 {
 	int		len;
 	int		i;
@@ -59,7 +45,7 @@ char	**ft_split(char const *str, char *sep)
 	split = malloc(sizeof(char *) * (len / 2 + 2));
 	while (str[i])
 	{
-		if (is_separator(str[i], sep))
+		if (str[i] == (const char)sep)
 		{
 			if (i > start)
 				split[j++] = copy_str(str, start, i - start);
@@ -75,8 +61,8 @@ char	**ft_split(char const *str, char *sep)
 
 /*#include <stdio.h>
 int main(void) {
-    char test[] = "bonjour,aurevoir:merci::bonsoir::";
-    char sep[] = ",:";
+    const char test[] = "bonjour,aurevoir:merci::bonsoir::";
+    char sep = ':';
     char **result = ft_split(test, sep);
     int i = 0;
     while (result[i]) {

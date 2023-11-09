@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mwojtasi <mwojtasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:20:32 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/08 06:06:28 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/09 18:14:10 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ char	*ft_strnstr(const char *big,	const char *little, size_t len)
 		return ((char *)big);
 	i = 0;
 	lsize = ft_strlen((char *)little) - 1;
-	if (!little)
-		return ((char *)big);
 	while (big[i] && i < len)
 	{
 		j = 0;

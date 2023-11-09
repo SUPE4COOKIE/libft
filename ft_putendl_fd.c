@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwojtasi <mwojtasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 18:28:52 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/09 18:42:26 by mwojtasi         ###   ########.fr       */
+/*   Created: 2023/11/09 18:42:59 by mwojtasi          #+#    #+#             */
+/*   Updated: 2023/11/09 18:44:57 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putstr_fd(char *s, int fd)
+void ft_putendl_fd(char *s, int fd)
 {
 	write(fd,s,ft_strlen(s) * sizeof(char));
+	write(fd,&"\0",1);
 }

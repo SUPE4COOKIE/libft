@@ -6,7 +6,7 @@
 /*   By: mwojtasi <mwojtasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 00:32:20 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/09 18:38:14 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/09 18:54:34 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,9 @@ int				ft_tolower(int c);
 int				ft_toupper(int c);
 void 			ft_striteri(char *s, void (*f)(unsigned int, char*));
 void			ft_putchar_fd(char c, int fd);
+typedef struct s_list
+{
+void *content;
+struct s_list *next;
+} t_list;
 #endif

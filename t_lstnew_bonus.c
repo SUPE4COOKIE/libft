@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   t_lstnew_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwojtasi <mwojtasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 18:28:52 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/09 18:42:26 by mwojtasi         ###   ########.fr       */
+/*   Created: 2023/11/09 18:56:36 by mwojtasi          #+#    #+#             */
+/*   Updated: 2023/11/09 19:10:40 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putstr_fd(char *s, int fd)
+t_list *ft_lstnew(void *content)
 {
-	write(fd,s,ft_strlen(s) * sizeof(char));
+	t_list new;
+
+	new.content = content;
+	new.next = NULL;
+	return (&new);
 }

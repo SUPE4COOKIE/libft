@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwojtasi <mwojtasi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 00:32:20 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/09 18:54:34 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/10 04:38:57 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,14 @@ int				ft_tolower(int c);
 int				ft_toupper(int c);
 void 			ft_striteri(char *s, void (*f)(unsigned int, char*));
 void			ft_putchar_fd(char c, int fd);
+char			*ft_itoa(int n);
+void			ft_putchar_fd(char c, int fd);
+void			ft_putendl_fd(char *s, int fd);
+void			ft_putstr_fd(char *s, int fd);
+char			*ft_strtrim(char const *s1, char const *set);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
+char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 typedef struct s_list
 {
 void *content;

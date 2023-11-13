@@ -6,11 +6,27 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 11:57:11 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/10 07:03:20 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/13 07:48:50 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	num_charptr(const char *str, char sep)
+{
+	int count = 0;
+	
+	if (*str && *str != sep)
+        count++;
+	
+    while (*str)
+    {
+        if (*str == sep && (*(str + 1) && *(str + 1) != sep))
+            count++;
+        str++;
+    }
+    return count;
+}
 
 static char	*copy_str(const char *str, int start, int len)
 {
@@ -38,11 +54,13 @@ char	**ft_split(char const *str, char sep)
 	int		start;
 	char	**split;
 
-	len = ft_strlen(str);
+	len = num_charptr(str, sep);
 	i = 0;
 	j = 0;
 	start = 0;
-	split = malloc(sizeof(char *) * (len / 2 + 2));
+	split = malloc(sizeof(char *) * (len + 1));
+	if (split == NULL)
+		return (NULL);
 	while (str[i])
 	{
 		if (str[i] == (const char)sep)

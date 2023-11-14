@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mwojtasi <mwojtasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 03:01:24 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/08 17:48:39 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/14 15:48:41 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,21 @@ static int	ft_isspace(char c)
 			|| c == '\r'))
 		return (1);
 	return (0);
+}
+
+static int	return_overflow(long int result, int nptr, int sign)
+{
+	long int	tmp;
+	
+	tmp = (result * 10 + nptr);
+	if (result != ((tmp - nptr) / 10))
+	{
+		if (sign < 0)
+			return (-1);
+		else
+			return (0);
+	}
+	return (1);
 }
 
 int	ft_atoi(const char *nptr)
@@ -38,8 +53,10 @@ int	ft_atoi(const char *nptr)
 		nptr++;
 	while (*nptr && ft_isdigit((unsigned char)*nptr))
 	{
+		if (return_overflow(result, (int)*nptr - '0', sign) != 1)
+			return (return_overflow(result, *nptr - '0', sign));
 		result = result * 10 + *nptr - '0';
 		nptr++;
 	}
-	return (result * sign);
+	return ((int)(result * sign));
 }

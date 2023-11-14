@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mwojtasi <mwojtasi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 11:57:11 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/13 08:12:13 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/14 19:27:50 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,32 +46,64 @@ static char	*copy_str(const char *str, int start, int len)
 	return (str_copy);
 }
 
-char	**ft_split(char const *str, char sep)
+static void free_str(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
+
+static char **fill(char **split, char const *str, char sep)
 {
 	int		i;
 	int		j;
 	int		start;
-	char	**split;
 
 	i = 0;
 	j = 0;
 	start = 0;
-	split = malloc(sizeof(char *) * (num_charptr(str, sep) + 1));
-	if (split == NULL)
-		return (NULL);
 	while (str[i])
 	{
 		if (str[i] == (const char)sep)
 		{
 			if (i > start)
-				split[j++] = copy_str(str, start, i - start);
+			{
+				split[j] = copy_str(str, start, i - start);
+				if (!split[j++])
+					return (NULL);
+			}
 			start = i + 1;
 		}
 		i++;
 	}
 	if (i > start)
-		split[j++] = copy_str(str, start, i - start);
+	{
+		split[j] = copy_str(str, start, i - start);
+		if (!split[j++])
+			return (NULL);
+	}
 	split[j] = NULL;
+	return (split);
+}
+
+char	**ft_split(char const *str, char sep)
+{
+	char	**split;
+
+	split = malloc(sizeof(char *) * (num_charptr(str, sep) + 1));
+	if (split == NULL)
+		return (NULL);
+	if (!fill(split, str, sep))
+	{
+		free_str(split);
+		return (NULL);
+	}
 	return (split);
 }
 

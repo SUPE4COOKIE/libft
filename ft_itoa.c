@@ -6,59 +6,50 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:41:35 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/13 23:51:52 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/14 04:02:23 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
 
-static size_t	get_int_size(int n)
+static size_t	int_size(long int n)
 {
-	size_t	s;
+	size_t	count;
 
-	if (n == 0)
-		return (1);
-	s = 0;
+	count = 1;
 	if (n < 0)
+		count++;
+	while ((n / 10))
 	{
-		if (n == INT_MIN)
-			n += 1;
-		n *= -1;
-		s++;
-	}
-	while (n > 0)
-	{
+		count++;
 		n /= 10;
-		s++;
 	}
-	return (s);
+	return (count);
 }
 
 char	*ft_itoa(int n)
 {
-	char *ret;
-	long long nbr;
-	size_t i;
+	long int	nb;
+	char		*str;
+	size_t		i;
 
-	nbr = n;
-	i = get_int_size(n);
-	ret = malloc(i + 1);
-	if (ret == NULL)
+	nb = n;
+	i = int_size(nb);
+	str = malloc((i + 1) * sizeof(char));
+	if (!str)
 		return (NULL);
-	ret[i] = 0;
-	if (nbr < 0)
+	str[i] = '\0';
+	if (nb < 0)
 	{
-		ret[0] = '-';
-		nbr *= -1;
+		str[0] = '-';
+		nb *= -1;
 	}
-	if (nbr == 0)
-		ret[0] = '0';
-	while (nbr > 0)
+	if (nb == 0)
+		str[0] = '0';
+	while (nb)
 	{
-		i--;
-		ret[i] = (nbr % 10) + '0';
-		nbr /= 10;
+		str[--i] = (char)((nb % 10) + '0');
+		nb /= 10;
 	}
-	return (ret);
+	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 22:36:18 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/13 23:48:50 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/14 03:34:51 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long	nb;
+	long int	nb;
 
 	nb = n;
 	if (nb < 0)

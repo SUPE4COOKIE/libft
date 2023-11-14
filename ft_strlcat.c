@@ -34,7 +34,7 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 }
 
 /*#include <stdio.h>
-int main(void)
+int	main(void)
 {
 	char dest[20] = "voici un ";
 	char src[10] = "testdsf";

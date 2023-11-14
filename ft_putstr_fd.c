@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwojtasi <mwojtasi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:28:52 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/09 18:42:26 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/13 07:58:56 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-	write(fd,s,ft_strlen(s) * sizeof(char));
+	write(fd, s, ft_strlen(s) * sizeof(char));
 }

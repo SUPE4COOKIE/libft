@@ -6,7 +6,7 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:41:35 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/10 04:34:57 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/13 23:51:52 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,11 @@ static size_t	get_int_size(int n)
 	return (s);
 }
 
-/* j'utilise un `long long` parce que j'ai pas envie de me prendre la tête */
-/* mais c'est pas forcément portable, donc j'aime pas trop */
 char	*ft_itoa(int n)
 {
-	char		*ret;
-	long long	nbr;
-	size_t		i;
+	char *ret;
+	long long nbr;
+	size_t i;
 
 	nbr = n;
 	i = get_int_size(n);

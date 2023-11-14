@@ -12,26 +12,26 @@
 
 #include "libft.h"
 
-static unsigned int is_trim_char(const char c, char const *set)
+static unsigned int	is_trim_char(const char c, char const *set)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (set[i])
+	i = 0;
+	while (set[i])
 	{
-        if (set[i] == c)
-            return (1);
+		if (set[i] == c)
+			return (1);
 		i++;
 	}
-    return (0);
+	return (0);
 }
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-    char	*result;
+	char	*result;
 	int		i;
-	size_t  start;
-    size_t  end;
+	size_t	start;
+	size_t	end;
 
 	if (!s1 || !set)
 		return (NULL);
@@ -41,7 +41,7 @@ char *ft_strtrim(char const *s1, char const *set)
 		start++;
 	while (end > start && is_trim_char(s1[end - 1], set))
 		end--;
-    result = malloc(end - start + 1);
+	result = malloc(end - start + 1);
 	if (!result)
 		return (NULL);
 	i = 0;

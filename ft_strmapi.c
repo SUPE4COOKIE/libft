@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char			*result;
 	unsigned int	i;
-	
+
 	if (!s || !f)
 		return (NULL);
 	i = 0;
@@ -38,7 +38,8 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 }
 
 #include <stdio.h>
-int main(void)
+
+int	main(void)
 {
 	const char s[] = "bcdefghij";
 	printf("%s",ft_strmapi(s, minusone));

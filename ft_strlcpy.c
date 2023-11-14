@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-unsigned	int	ft_strlcpy(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	unsigned int	src_size;
 	unsigned int	i;
@@ -33,7 +33,7 @@ unsigned	int	ft_strlcpy(char *dest, char *src, unsigned int size)
 }
 
 /*#include <stdio.h>
-int	main()
+int	main(void)
 {
 	char src[] = "Piano";
 	char dest[] = "Hello";

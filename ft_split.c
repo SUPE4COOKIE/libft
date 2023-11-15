@@ -3,30 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwojtasi <mwojtasi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 11:57:11 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/14 19:27:50 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/15 11:20:57 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	num_charptr(const char *str, char sep)
-{
-	int	count;
-
-	count = 0;
-	if (*str && *str != sep)
-		count++;
-	while (*str)
-	{
-		if (*str == sep && (*(str + 1) && *(str + 1) != sep))
-			count++;
-		str++;
-	}
-	return (count);
-}
 
 static char	*copy_str(const char *str, int start, int len)
 {
@@ -46,7 +30,7 @@ static char	*copy_str(const char *str, int start, int len)
 	return (str_copy);
 }
 
-static void free_str(char **split)
+static void	free_str(char **split)
 {
 	int	i;
 
@@ -59,11 +43,27 @@ static void free_str(char **split)
 	free(split);
 }
 
-static char **fill(char **split, char const *str, char sep)
+int	fill_remain(int i, int start, char **s, const char *str)
 {
-	int		i;
-	int		j;
-	int		start;
+	int	j;
+
+	j = 0;
+	if (i > start)
+	{
+		s[j] = copy_str(str, start, i - start);
+		if (!s[j])
+			return (-1);
+		j++;
+	}
+	s[j] = NULL;
+	return (0);
+}
+
+static char	**fill(char **split, char const *str, char sep)
+{
+	int	i;
+	int	j;
+	int	start;
 
 	i = 0;
 	j = 0;
@@ -82,21 +82,28 @@ static char **fill(char **split, char const *str, char sep)
 		}
 		i++;
 	}
-	if (i > start)
-	{
-		split[j] = copy_str(str, start, i - start);
-		if (!split[j++])
-			return (NULL);
-	}
-	split[j] = NULL;
+	if (fill_remain(i, start, &split[j], (char *)str) == -1)
+		return (NULL);
 	return (split);
 }
 
 char	**ft_split(char const *str, char sep)
 {
 	char	**split;
+	int		count;
+	int		i;
 
-	split = malloc(sizeof(char *) * (num_charptr(str, sep) + 1));
+	count = 0;
+	i = 0;
+	if (str[i] && str[i] != sep)
+		count++;
+	while (str[i])
+	{
+		if (str[i] == sep && (str[i + 1] && str[i + 1] != sep))
+			count++;
+		i++;
+	}
+	split = malloc(sizeof(char *) * (count + 1));
 	if (split == NULL)
 		return (NULL);
 	if (!fill(split, str, sep))

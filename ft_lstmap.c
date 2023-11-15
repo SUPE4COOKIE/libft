@@ -6,29 +6,45 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 11:28:30 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/15 11:50:35 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/16 00:36:58 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *))
+static t_list	*lstnew_del(void *content, void (*del)(void *))
 {
-	t_list	*dlst;
-	
-	dlst = malloc(sizeof(t_list) * ft_lstsize(lst));
-	if (!dlst)
-		return (NULL);
-	while (lst)
+	t_list	*new;
+
+	new = ft_lstnew(content);
+	if (!new)
 	{
-		dlst->content = f(lst->content);
-		if (!dlst->content)
+		del(content);
+		return (NULL);
+	}
+	return (new);
+}
+
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list	*result;
+	t_list	*current;
+	t_list	*new;
+
+	if (!lst || !f)
+		return (NULL);
+	current = lst;
+	result = NULL;
+	while (current)
+	{
+		new = lstnew_del(f(current->content), del);
+		if (!new)
 		{
-			ft_lstdelone(dlst, del);
+			ft_lstclear(&result, del);
 			return (NULL);
 		}
-		dlst->next = lst->next;
-		lst = lst->next;
+		ft_lstadd_back(&result, new);
+		current = current->next;
 	}
-	return (dlst);
+	return (result);
 }

@@ -23,7 +23,7 @@ static int	ft_isspace(char c)
 static int	return_overflow(long int result, int nptr, int sign)
 {
 	long int	tmp;
-	
+
 	tmp = (result * 10 + nptr);
 	if (result != ((tmp - nptr) / 10))
 	{

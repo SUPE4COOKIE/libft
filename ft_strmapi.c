@@ -6,7 +6,7 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:04:07 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/10 05:08:25 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/23 00:20:35 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!s || !f)
 		return (NULL);
 	i = 0;
-	result = malloc((ft_strlen(s) + 1) * sizeof(char));
+	result = malloc(ft_strlen(s) + 1);
 	if (!result)
 		return (NULL);
 	while (s[i])

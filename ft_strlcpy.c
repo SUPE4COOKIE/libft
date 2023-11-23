@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwojtasi <mwojtasi@student.42lyon.fr >     +#+  +:+       +#+        */
+/*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 01:53:33 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/07/07 01:53:33 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/23 01:08:02 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	unsigned int	src_size;
-	unsigned int	i;
+	size_t	src_size;
+	size_t	i;
 
 	src_size = ft_strlen(src);
 	if (size == 0)

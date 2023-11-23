@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwojtasi <mwojtasi@student.42lyon.fr >     +#+  +:+       +#+        */
+/*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 03:50:22 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/07/08 03:50:22 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/23 01:07:13 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+#include "libft.h"
+
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	dest_size;
-	unsigned int	src_size;
+	size_t	i;
+	size_t	dest_size;
+	size_t	src_size;
 
 	dest_size = 0;
 	src_size = 0;

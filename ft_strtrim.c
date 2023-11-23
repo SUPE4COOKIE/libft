@@ -6,15 +6,15 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:10:55 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/11 19:10:45 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/23 01:13:40 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned int	is_trim_char(const char c, char const *set)
+static size_t	is_trim_char(const char c, char const *set)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (set[i])
@@ -29,7 +29,7 @@ static unsigned int	is_trim_char(const char c, char const *set)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*result;
-	int		i;
+	size_t	i;
 	size_t	start;
 	size_t	end;
 

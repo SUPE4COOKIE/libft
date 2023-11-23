@@ -6,7 +6,7 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 13:28:08 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/10 05:31:42 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/23 00:23:40 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	if (len > slen - start)
 		len = slen - start;
-	result = malloc((len + 1) * sizeof(char));
+	result = malloc(len + 1);
 	if (!result)
 		return (NULL);
 	i = 0;

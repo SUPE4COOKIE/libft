@@ -6,7 +6,7 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:42:59 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/13 07:56:30 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/23 00:15:11 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	write(fd, s, ft_strlen(s) * sizeof(char));
+	write(fd, s, ft_strlen(s));
 	write(fd, &"\n", 1);
 }

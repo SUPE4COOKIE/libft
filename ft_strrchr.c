@@ -6,7 +6,7 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:32:07 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/08 05:54:07 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/23 01:13:58 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
+	size_t	i;
 	char	*last;
 
 	i = 0;

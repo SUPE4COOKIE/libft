@@ -6,13 +6,15 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 01:50:45 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/08 17:37:10 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/23 01:11:02 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+#include "libft.h"
+
+int	ft_strncmp(char *s1, char *s2, size_t n)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	while ((s1[i] || s2[i]) && i < n)

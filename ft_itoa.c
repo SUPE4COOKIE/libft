@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mwojtasi <mwojtasi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:41:35 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/14 13:28:17 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/23 00:14:20 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_itoa(int n)
 
 	nb = (long int)n;
 	i = int_size(nb);
-	str = malloc((i + 1) * sizeof(char));
+	str = malloc((i + 1));
 	if (!str)
 		return (NULL);
 	str[i] = '\0';

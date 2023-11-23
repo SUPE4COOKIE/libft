@@ -6,7 +6,7 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 18:33:37 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/07 19:30:35 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/23 01:02:40 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	*ft_strcpy(char *dest, char *src)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (src[i])

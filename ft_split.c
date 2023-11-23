@@ -6,7 +6,7 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 11:57:11 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/23 01:12:13 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/23 01:37:02 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ char	**ft_split(char const *str, char sep)
 			count++;
 		i++;
 	}
-	split = malloc(count + 1);
+	split = malloc(sizeof(char *) * (count + 1));
 	if (split == NULL)
 		return (NULL);
 	if (!fill(split, str, sep))

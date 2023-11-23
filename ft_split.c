@@ -6,7 +6,7 @@
 /*   By: mwojtasi <mwojtasi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 11:57:11 by mwojtasi          #+#    #+#             */
-/*   Updated: 2023/11/23 01:37:02 by mwojtasi         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:10:46 by mwojtasi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	free_str(char **split)
 	free(split);
 }
 
-int	fill_remain(size_t i, size_t start, char **s, const char *str)
+static int	fill_remain(size_t i, size_t start, char **s, const char *str)
 {
 	size_t	j;
 
@@ -55,7 +55,6 @@ int	fill_remain(size_t i, size_t start, char **s, const char *str)
 			return (-1);
 		j++;
 	}
-	s[j] = NULL;
 	return (0);
 }
 
@@ -106,6 +105,7 @@ char	**ft_split(char const *str, char sep)
 	split = malloc(sizeof(char *) * (count + 1));
 	if (split == NULL)
 		return (NULL);
+	split[count] = NULL;
 	if (!fill(split, str, sep))
 	{
 		free_str(split);

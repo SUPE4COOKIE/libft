@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 int				ft_atoi(const char *nptr);
 void			ft_bzero(void *s, size_t n);

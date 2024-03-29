@@ -22,15 +22,15 @@ static int	ft_isspace(char c)
 
 static int	return_overflow(long int result, int nptr, int sign)
 {
-	long int	tmp;
-
-	tmp = (result * 10 + nptr);
-	if (result != ((tmp - nptr) / 10))
+	if (sign > 0)
 	{
-		if (sign < 0)
-			return (-1);
-		else
+		if (result > (INT_MAX - nptr) / 10)
 			return (0);
+	}
+	else
+	{
+		if (-result < (INT_MIN + nptr) / 10)
+			return (-1);
 	}
 	return (1);
 }
